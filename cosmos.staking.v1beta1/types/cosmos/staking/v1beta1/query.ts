@@ -2751,9 +2751,8 @@ export class QueryClientImpl implements Query {
   ValidatorUnbondingDelegations(
     request: QueryValidatorUnbondingDelegationsRequest
   ): Promise<QueryValidatorUnbondingDelegationsResponse> {
-    const data = QueryValidatorUnbondingDelegationsRequest.encode(
-      request
-    ).finish();
+    const data =
+      QueryValidatorUnbondingDelegationsRequest.encode(request).finish();
     const promise = this.rpc.request(
       "cosmos.staking.v1beta1.Query",
       "ValidatorUnbondingDelegations",
@@ -2809,9 +2808,8 @@ export class QueryClientImpl implements Query {
   DelegatorUnbondingDelegations(
     request: QueryDelegatorUnbondingDelegationsRequest
   ): Promise<QueryDelegatorUnbondingDelegationsResponse> {
-    const data = QueryDelegatorUnbondingDelegationsRequest.encode(
-      request
-    ).finish();
+    const data =
+      QueryDelegatorUnbondingDelegationsRequest.encode(request).finish();
     const promise = this.rpc.request(
       "cosmos.staking.v1beta1.Query",
       "DelegatorUnbondingDelegations",
@@ -2935,7 +2933,5 @@ function longToNumber(long: Long): number {
   return long.toNumber();
 }
 
-if (util.Long !== Long) {
-  util.Long = Long as any;
-  configure();
-}
+util.Long = Long as any;
+configure();

@@ -658,9 +658,10 @@ export const TxBody = {
       obj.extension_options = [];
     }
     if (message.non_critical_extension_options) {
-      obj.non_critical_extension_options = message.non_critical_extension_options.map(
-        (e) => (e ? Any.toJSON(e) : undefined)
-      );
+      obj.non_critical_extension_options =
+        message.non_critical_extension_options.map((e) =>
+          e ? Any.toJSON(e) : undefined
+        );
     } else {
       obj.non_critical_extension_options = [];
     }
@@ -1268,7 +1269,5 @@ function longToNumber(long: Long): number {
   return long.toNumber();
 }
 
-if (util.Long !== Long) {
-  util.Long = Long as any;
-  configure();
-}
+util.Long = Long as any;
+configure();

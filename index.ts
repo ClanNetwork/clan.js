@@ -2,7 +2,7 @@
 
 import { Registry } from "@cosmjs/proto-signing";
 
-import { plugEnv, plugKeplr, plugSigner, plugWebsocket } from "./plugins";
+import { Env, plugEnv, plugKeplr, plugSigner, plugWebsocket } from "./plugins";
 
 import {
   Module as ClanNetworkClannetworkClaimV1Beta1,
@@ -108,7 +108,7 @@ const registry = new Registry([
   ...IbcCorePortV1MsgTypes,
 ]);
 
-type Environment = ReturnType<typeof plugEnv>["env"];
+type Environment = Env;
 
 function plugClanNetworkClannetworkClaimV1Beta1(env: Environment): {
   clanNetworkClannetworkClaimV1Beta1: ClanNetworkClannetworkClaimV1Beta1;

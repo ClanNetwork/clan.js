@@ -1691,9 +1691,8 @@ export class QueryClientImpl implements Query {
   ValidatorOutstandingRewards(
     request: QueryValidatorOutstandingRewardsRequest
   ): Promise<QueryValidatorOutstandingRewardsResponse> {
-    const data = QueryValidatorOutstandingRewardsRequest.encode(
-      request
-    ).finish();
+    const data =
+      QueryValidatorOutstandingRewardsRequest.encode(request).finish();
     const promise = this.rpc.request(
       "cosmos.distribution.v1beta1.Query",
       "ValidatorOutstandingRewards",
@@ -1839,7 +1838,5 @@ function longToNumber(long: Long): number {
   return long.toNumber();
 }
 
-if (util.Long !== Long) {
-  util.Long = Long as any;
-  configure();
-}
+util.Long = Long as any;
+configure();

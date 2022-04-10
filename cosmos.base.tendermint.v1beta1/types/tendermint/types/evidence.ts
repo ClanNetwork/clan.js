@@ -67,10 +67,8 @@ export const Evidence = {
           );
           break;
         case 2:
-          message.light_client_attack_evidence = LightClientAttackEvidence.decode(
-            reader,
-            reader.uint32()
-          );
+          message.light_client_attack_evidence =
+            LightClientAttackEvidence.decode(reader, reader.uint32());
           break;
         default:
           reader.skipType(tag & 7);
@@ -134,9 +132,10 @@ export const Evidence = {
       object.light_client_attack_evidence !== undefined &&
       object.light_client_attack_evidence !== null
     ) {
-      message.light_client_attack_evidence = LightClientAttackEvidence.fromPartial(
-        object.light_client_attack_evidence
-      );
+      message.light_client_attack_evidence =
+        LightClientAttackEvidence.fromPartial(
+          object.light_client_attack_evidence
+        );
     } else {
       message.light_client_attack_evidence = undefined;
     }
@@ -605,7 +604,5 @@ function longToNumber(long: Long): number {
   return long.toNumber();
 }
 
-if (util.Long !== Long) {
-  util.Long = Long as any;
-  configure();
-}
+util.Long = Long as any;
+configure();

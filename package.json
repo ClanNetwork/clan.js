@@ -10,10 +10,14 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "main": "index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "main": "dist/index.js",
   "publishConfig": {
     "access": "public"
   },
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@cosmjs/launchpad": "0.27.0",
     "@cosmjs/proto-signing": "0.27.0",

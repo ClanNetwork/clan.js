@@ -1171,16 +1171,18 @@ export const GenesisState = {
       obj.outstanding_rewards = [];
     }
     if (message.validator_accumulated_commissions) {
-      obj.validator_accumulated_commissions = message.validator_accumulated_commissions.map(
-        (e) => (e ? ValidatorAccumulatedCommissionRecord.toJSON(e) : undefined)
-      );
+      obj.validator_accumulated_commissions =
+        message.validator_accumulated_commissions.map((e) =>
+          e ? ValidatorAccumulatedCommissionRecord.toJSON(e) : undefined
+        );
     } else {
       obj.validator_accumulated_commissions = [];
     }
     if (message.validator_historical_rewards) {
-      obj.validator_historical_rewards = message.validator_historical_rewards.map(
-        (e) => (e ? ValidatorHistoricalRewardsRecord.toJSON(e) : undefined)
-      );
+      obj.validator_historical_rewards =
+        message.validator_historical_rewards.map((e) =>
+          e ? ValidatorHistoricalRewardsRecord.toJSON(e) : undefined
+        );
     } else {
       obj.validator_historical_rewards = [];
     }
@@ -1337,7 +1339,5 @@ function longToNumber(long: Long): number {
   return long.toNumber();
 }
 
-if (util.Long !== Long) {
-  util.Long = Long as any;
-  configure();
-}
+util.Long = Long as any;
+configure();
