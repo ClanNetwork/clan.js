@@ -1,6 +1,6 @@
 {
-  "name": "clan.js",
-  "version": "0.0.1",
+  "name": "clanjs",
+  "version": "1.0.0",
   "description": "The Javascript SDk for Clan Network",
   "author": "Clan Network Core",
   "license": "Apache-2.0",
